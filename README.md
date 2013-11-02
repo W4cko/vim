@@ -2,7 +2,7 @@
 
 ## Installation
 
-    cd ~ && git clone https://github.com/jorddan/VIMm.git
+    cd ~ && git clone https://github.com/jorddan/vim.git
     ln -s ~/vim/.vim ~/.vim
     ln -s ~/vim/.vimrc ~/.vimrc
     ln -s ~/vim/.gvimrc ~/.gvimrc
