@@ -12,5 +12,5 @@
 
 ## Update
 	
-    cd ~ && git pull origin master
+    cd ~/vim && git pull origin master
     git submodule foreach git pull origin master
