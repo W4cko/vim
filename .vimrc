@@ -80,6 +80,9 @@ set backspace=indent,eol,start
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
 
+" Enable file type detection.
+filetype plugin indent on
+
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
