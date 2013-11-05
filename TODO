@@ -1,6 +1,4 @@
 Makefile
-fugitive
-Airline
 Pathogen = bundle
 Split .vimrc
 Organize mappings
