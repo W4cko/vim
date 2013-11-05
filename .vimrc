@@ -31,6 +31,9 @@ set laststatus=2
 " Reload changed files
 set autoread
 
+" Fix timeouts
+set timeout timeoutlen=1000 ttimeoutlen=100
+
 " Disable line wrap for long lines
 set nowrap
 
