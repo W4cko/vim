@@ -143,11 +143,7 @@ set t_Co=256
 syntax on
 colorscheme jellybeans
 
-" Color scheme overrides
+" Transparent background
 hi Normal 		guibg=NONE 		ctermbg=NONE
 hi NonText 		guibg=NONE 		ctermbg=NONE
 hi LineNr 		guibg=NONE 		ctermbg=NONE
-hi VertSplit    ctermfg=black   ctermbg=black    cterm=NONE
-hi TabLineFill 	ctermbg=white
-hi TabLine 		ctermbg=white
-hi TabLineSel 	ctermbg=NONE 	ctermfg=white 
