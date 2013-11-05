@@ -25,6 +25,9 @@ set smartcase
 " Search as we type the search query
 set incsearch
 
+" Always a statusline
+set laststatus=2
+
 " Reload changed files
 set autoread
 
