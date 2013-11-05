@@ -132,6 +132,9 @@ au BufRead,BufNewFile *.mod set filetype=ampl
 " NERDTree ignore
 let NERDTreeIgnore=['\.o$', '\~$', '\.class$']
 
+" Airline
+let g:airline_powerline_fonts = 1
+
 " Colors
 set t_Co=256
 syntax on
