@@ -4,4 +4,4 @@ set guioptions -=T  "toolbar
 set guioptions -=r  "scrollbar
 
 " Font
-set guifont=Ubuntu\ Mono\ 12
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
