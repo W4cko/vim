@@ -56,7 +56,7 @@ set history=1000
 set undolevels=1000
 
 " Ignore some file extensions
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.o
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.so
 
 " Don't bip
 " set visualbell
@@ -133,7 +133,7 @@ set noswapfile
 au BufRead,BufNewFile *.mod set filetype=ampl
 
 " NERDTree ignore
-let NERDTreeIgnore=['\.o$', '\~$', '\.class$']
+let NERDTreeIgnore=['\.o$', '\~$', '\.class$', '\.so$']
 
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
