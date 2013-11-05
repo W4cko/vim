@@ -141,9 +141,9 @@ let g:airline_powerline_fonts = 1
 " Colors
 set t_Co=256
 syntax on
-colorscheme jellybeans
+colorscheme wombat256mod
 
 " Transparent background
-hi Normal 		guibg=NONE 		ctermbg=NONE
-hi NonText 		guibg=NONE 		ctermbg=NONE
-hi LineNr 		guibg=NONE 		ctermbg=NONE
+" hi Normal 		guibg=NONE 		ctermbg=NONE
+" hi NonText 		guibg=NONE 		ctermbg=NONE
+" hi LineNr 		guibg=NONE 		ctermbg=NONE
