@@ -135,6 +135,9 @@ au BufRead,BufNewFile *.mod set filetype=ampl
 " NERDTree ignore
 let NERDTreeIgnore=['\.o$', '\~$', '\.class$']
 
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 " Airline
 let g:airline_powerline_fonts = 1
 
