@@ -121,6 +121,9 @@ nmap <f3> :NERDTreeToggle<CR>
 nmap <f4> :TagbarToggle<CR>
 nmap <f5> <C-w><C-w>
 
+" Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
+vmap <BS> x
+
 " Puts new vsplit windows to the right of the current
 set splitright
 
