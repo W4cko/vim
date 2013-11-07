@@ -151,6 +151,19 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.class$', '\.so$']
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" When shifting, retain selection over multiple shifts...
+vmap <expr> > KeepVisualSelection(">")
+vmap <expr> < KeepVisualSelection("<")
+
+function! KeepVisualSelection(cmd)
+    set nosmartindent
+    if mode() ==# "V"
+        return a:cmd . ":set smartindent\<CR>gv"
+    else
+        return a:cmd . ":set smartindent\<CR>"
+    endif
+endfunction
+
 " Airline
 let g:airline_powerline_fonts = 1
 
@@ -163,3 +176,5 @@ colorscheme wombat256mod
 " hi Normal 		guibg=NONE 		ctermbg=NONE
 " hi NonText 		guibg=NONE 		ctermbg=NONE
 " hi LineNr 		guibg=NONE 		ctermbg=NONE
+
+
