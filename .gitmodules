@@ -19,9 +19,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/tlib"]
-	path = .vim/bundle/tlib
-	url = https://github.com/tomtom/tlib_vim.git
 [submodule ".vim/bundle/commentary"]
 	path = .vim/bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
