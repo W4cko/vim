@@ -124,13 +124,6 @@ nmap <f2> :tabnew<CR>
 nmap <f4> :TagbarToggle<CR>
 nmap <f5> <C-w><C-w>
 
-" Autocenter
-nmap G Gzz
-nmap n nzz
-nmap N Nzz
-nmap } }zz
-nmap { {zz
-
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
 vmap <BS> x
 
