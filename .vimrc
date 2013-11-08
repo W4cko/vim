@@ -105,14 +105,18 @@ map <C-l> <C-w>l
 " set directory=~/.vim/tmp/swap
 
 " Disable arrow keys
-" map   <Up>     <Nop>
-" map   <Down>   <Nop>
-" map   <Left>   <Nop>
-" map   <Right>  <Nop>
-" imap  <Up>     <Nop>
-" imap  <Down>   <Nop>
-" imap  <Left>   <Nop>
-" imap  <Right>  <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
 
 " Misc mappings
 nmap <f1> :tabprevious<CR>
