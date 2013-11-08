@@ -121,7 +121,6 @@ vnoremap <Right> <Nop>
 " Misc mappings
 nmap <f1> :tabprevious<CR>
 nmap <f2> :tabnew<CR>
-nmap <f3> :NERDTreeToggle<CR>
 nmap <f4> :TagbarToggle<CR>
 nmap <f5> <C-w><C-w>
 
@@ -155,12 +154,6 @@ set noswapfile
 
 " AMPL syntax for .mod files
 au BufRead,BufNewFile *.mod set filetype=ampl
-
-" NERDTree ignore
-let NERDTreeIgnore=['\.o$', '\~$', '\.class$', '\.so$']
-
-" Close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " When shifting, retain selection over multiple shifts...
 vmap <expr> > KeepVisualSelection(">")
