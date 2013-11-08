@@ -1,4 +1,5 @@
 Easymotion
+Vivify = http://bytefluent.com/devify/
 Makefile
 Pathogen = bundle
 Split .vimrc
