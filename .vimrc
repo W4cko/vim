@@ -136,8 +136,8 @@ set splitbelow
 " pastetoggle (sane indentation on pastes)
 set pastetoggle=<F12>
 
-" Allow mouse (duh)
-set mouse=a
+" Disable mouse
+set mouse=
 
 " No swap files
 set noswapfile
