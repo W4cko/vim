@@ -176,6 +176,9 @@ inoremap <s-tab> <c-n>
 " Airline
 let g:airline_powerline_fonts = 1
 
+" CtrlP
+let g:ctrlp_show_hidden = 1
+
 " Colors
 set t_Co=256
 syntax on
