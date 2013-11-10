@@ -1,150 +1,139 @@
-" Language:     ampl (A Mathematical Programming Language)
-" Maintainer:   Krief David <david.krief@etu.enseeiht.fr> or <david_krief@hotmail.com>
-" Last Change:  2003 May 11
+" Vim syntax file
+" Language:     Ampl
+" Maintainer:   Dominique Orban
+"               Dominique.Orban@polymtl.ca
+" Last Change:  Wed May  5 12:06:54 CDT 2004
+" Version:      0.1
+" Remark:       Does not recognize *all* keywords yet
+"               but the most commonly used ones are.
 
 
 if version < 600
- syntax clear
+    syntax clear
 elseif exists("b:current_syntax")
- finish
+    finish
 endif
 
+" Case is important
+syntax case match
 
+" Keywords classification
+syntax keyword amplConditional          else if then
+syntax keyword amplRepeat               for repeat while until
+syntax keyword amplStatement            data maximize minimize model solve
+syntax match   amplStatement            /subject to/
+syntax keyword amplStatement            net_in net_out to_come
+syntax keyword amplDeclaration          arc node param set var function let
+syntax keyword amplType                 binary integer symbolic in default logical
+syntax keyword amplType                 defaultsym nodefaultsym coeff cover obj suffix
+syntax keyword amplOperator             break reset check
+syntax match   amplConstant             "[+-]\?Infinity"
 
+syntax keyword amplStatement            Current Initial all
+syntax keyword amplStatement            environ option
+syntax keyword amplStatement            shell_exitcode solve_exitcode solve_message
+syntax keyword amplStatement            solve_result solve_result_num table write
 
-"--
-syn match   amplEntityKeyword     "\(subject to\)\|\(subj to\)\|\(s\.t\.\)"
-syn keyword amplEntityKeyword	  minimize   maximize  objective
+syntax keyword amplDirection            IN INOUT LOCAL OUT
 
-syn keyword amplEntityKeyword	  coeff      coef      cover	    obj       default
-syn keyword amplEntityKeyword	  from	     to        to_come	    net_in    net_out
-syn keyword amplEntityKeyword	  dimen      dimension
+syntax match   amplDotSuffix            "\.init[0]\|\.lb[12]\?"
+syntax match   amplDotSuffix            "\.[ul]\?slack\|\.[lu]/?rc\|\.relax"
+syntax match   amplDotSuffix            "\.[as]\?status\|\.ub[012]\?"
+syntax match   amplDotSuffix            "\.val"
+syntax match   amplDotSuffix            "\.body\|\.dinit[0]\|\.[l]\?dual\|\.[lu]bs"
 
+syntax keyword amplLogicalOperator      and or not exists forall complements
+syntax match   amplLogicalOperator      "&&"
+syntax match   amplLogicalOperator      "||"
+syntax match   amplLogicalOperator      "!="
 
+syntax keyword amplArithmeticOperator   sum prod
+syntax match   amplArithmeticOperator   "[+-]"
+syntax match   amplArithmeticOperator   "\*"
+syntax match   amplArithmeticOperator   "/"
+syntax match   amplArithmeticOperator   "\^"
 
-"--
-syn keyword amplType		  integer    binary    set	    param     var
-syn keyword amplType		  node	     ordered   circular     reversed  symbolic
-syn keyword amplType		  arc
+syntax match   amplRelationalOperator   "[<>=!]"
 
+syntax match   amplRangeOperator        "\.\."
 
+syntax match   amplNumber               "\<\d\+[ij]\=\>"
+syntax match   amplFloat                "\<\d\+\(\.\d*\)\=\([edED][-+]\=\d\+\)\=[ij]\=\>"
+syntax match   amplFloat                "\.\d\+\([edED][-+]\=\d\+\)\=[ij]\=\>"
 
-"--
-syn keyword amplStatement	  check      close     \display     drop      include
-syn keyword amplStatement	  print      printf    quit	    reset     restore
-syn keyword amplStatement	  solve      update    write	    shell     model
-syn keyword amplStatement	  data	     option    let	    solution  fix
-syn keyword amplStatement	  unfix      end       function     pipe      format
+syntax region  amplString               start=+\'+ skip=+\\'+ end=+\'+
+syntax region  amplString               start=+\"+ skip=+\\"+ end=+\"+
 
+syntax keyword amplBuiltinOperator      abs acos acosh alias asin asinh atan atan2
+syntax keyword amplBuiltinOperator      atanh ceil ctime cos cosh exp floor log log10
+syntax keyword amplBuiltinOperator      max min precision round sin sinh sqrt tan tanh
+syntax keyword amplBuiltinOperator      time trunc div
+syntax match   amplBuiltinOperator      "[^\.]mod"
 
+syntax keyword amplStringOperator       num num0 ichar char length substr sprintf
+syntax keyword amplStringOperator       match sub gsub printf display
 
-"--
-syn keyword amplConditional	  if	     then      else	    and       or
-syn keyword amplConditional	  exists     forall    in	    not       within
+syntax keyword amplBuiltinOrderedSet    next nextw prev prevw first last member inter
+syntax keyword amplBuiltinOrderedSet    ord ord0 card arity indexarity diff symdiff
+syntax keyword amplBuiltinOrderedSet    in within ordered by circular reversed union
+syntax keyword amplBuiltinOrderedSet    cross setof less dimen interval contains
 
+syntax keyword amplBuiltinRandom        Beta Cauchy Exponential Gamma Irand224 Normal
+syntax keyword amplBuiltinRandom        Normal01 Poisson Uniform Uniform01 randseed
 
+syntax keyword amplTodo                 TODO FIXME XXX
 
-"--
-syn keyword amplRepeat		  while      repeat    for
+" Comments are everything to the right of a #
+syntax match   amplComment              /#.*/
 
+" Special characters
+syntax match   amplColon                ":"
+syntax match   amplAssignment           ":="
+syntax match   amplSemicolon            ";"
 
+" Blocks
+syntax region  amplBlock                start=/{/    end=/}/    contains=ALL
+syntax region  amplCommentBlock         start=/\/\*/ end=/\*\// keepend
 
-"--
-syn keyword amplOperators	  union      diff      difference   symdiff   sum
-syn keyword amplOperators	  inter      intersect intersection cross     setof
-syn keyword amplOperators	  by	     less      mod	    div       product
-"syn keyword amplOperators	   min	      max
-"conflict between functions max, min and operators max, min
-
-syn match   amplBasicOperators    "||\|<=\|==\|\^\|<\|=\|!\|-\|\.\.\|:="
-syn match   amplBasicOperators    "&&\|>=\|!=\|\*\|>\|:\|/\|+\|\*\*"
-
-
-
-
-"--
-syn match   amplComment		"\#.*"
-syn region  amplComment		start=+\/\*+		  end=+\*\/+
-
-syn region  amplStrings		start=+\'+    skip=+\\'+  end=+\'+
-syn region  amplStrings		start=+\"+    skip=+\\"+  end=+\"+
-
-syn match   amplNumerics	"[+-]\=\<\d\+\(\.\d\+\)\=\([dDeE][-+]\=\d\+\)\=\>"
-syn match   amplNumerics	"[+-]\=Infinity"
-
-
-"--
-syn keyword amplSetFunction	  card	     next     nextw	  prev	    prevw
-syn keyword amplSetFunction	  first      last     member	  ord	    ord0
-
-syn keyword amplBuiltInFunction   abs	     acos     acosh	  alias     asin
-syn keyword amplBuiltInFunction   asinh      atan     atan2	  atanh     ceil
-syn keyword amplBuiltInFunction   cos	     exp      floor	  log	    log10
-syn keyword amplBuiltInFunction   max	     min      precision   round     sin
-syn keyword amplBuiltInFunction   sinh	     sqrt     tan	  tanh	    trunc
-
-syn keyword amplRandomGenerator   Beta	     Cauchy   Exponential Gamma     Irand224
-syn keyword amplRandomGenerator   Normal     Poisson  Uniform	  Uniform01
-
-
-
-"-- to highlight the 'dot-suffixes'
-syn match   amplDotSuffix	"\h\w*\.\(lb\|ub\)"hs=e-2
-syn match   amplDotSuffix	"\h\w*\.\(lb0\|lb1\|lb2\|lrc\|ub0\)"hs=e-3
-syn match   amplDotSuffix	"\h\w*\.\(ub1\|ub2\|urc\|val\|lbs\|ubs\)"hs=e-3
-syn match   amplDotSuffix	"\h\w*\.\(init\|body\|dinit\|dual\)"hs=e-4
-syn match   amplDotSuffix	"\h\w*\.\(init0\|ldual\|slack\|udual\)"hs=e-5
-syn match   amplDotSuffix	"\h\w*\.\(lslack\|uslack\|dinit0\)"hs=e-6
-
-
-
-"--
-syn match   amplPiecewise	"<<\|>>"
-
-
-
-"-- Todo.
-syn keyword amplTodo contained	 TODO FIXME XXX
-
-
-
-
-
-
-
-
-
-
+" Define the default highlighting
 if version >= 508 || !exists("did_ampl_syntax_inits")
-  if version < 508
-    let did_ampl_syntax_inits = 1
-    command -nargs=+ HiLink hi link <args>
-  else
-    command -nargs=+ HiLink hi def link <args>
-  endif
+    if version < 508
+        let did_ampl_syntax_inits = 1
+        command -nargs=+ HiLink hi link <args>
+    else
+        command -nargs=+ HiLink hi def link <args>
+    endif
 
-  " The default methods for highlighting. Can be overridden later.
-  HiLink amplEntityKeyword	Keyword
-  HiLink amplType		Type
-  HiLink amplStatement		Statement
-  HiLink amplOperators		Operator
-  HiLink amplBasicOperators	Operator
-  HiLink amplConditional	Conditional
-  HiLink amplRepeat		Repeat
-  HiLink amplStrings		String
-  HiLink amplNumerics		Number
-  HiLink amplSetFunction	Function
-  HiLink amplBuiltInFunction	Function
-  HiLink amplRandomGenerator	Function
-  HiLink amplComment		Comment
-  HiLink amplDotSuffix		Special
-  HiLink amplPiecewise		Special
+    HiLink amplConditional          Conditional
+    HiLink amplRepeat               Repeat
+    HiLink amplStatement            Statement
+    HiLink amplDotSuffix            Label
+    HiLink amplDeclaration          Typedef
+    HiLink amplType                 Type
+    HiLink amplLogicalOperator      Operator
+    HiLink amplArithmeticOperator   Operator
+    HiLink amplRelationalOperator   Operator
+    HiLink amplRangeOperator        Operator
+    "HiLink amplNumber               Number
+    "HiLink amplFloat                Float
+    HiLink amplOperator             Operator
+    HiLink amplConstant             Constant
+    HiLink amplBuiltinOperator      Function
+    HiLink amplBuiltinOrderedSet    Function
+    HiLink amplBuiltinRandom        Function
+    HiLink amplBlock                Normal
+    HiLink amplString               String
 
-  delcommand HiLink
+    HiLink amplComment              Comment
+    HiLink amplCommentBlock         Comment
+    HiLink amplAssignment           Delimiter
+    HiLink amplSemicolon            SpecialChar
+    HiLink amplColon                SpecialChar
+
+    HiLink amplTodo                 Todo
+
+    delcommand HiLink
+
 endif
 
 let b:current_syntax = "ampl"
-
-" vim: ts=8
-
-
