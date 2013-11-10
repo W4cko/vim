@@ -60,7 +60,7 @@ set undolevels=1000
 
 " Turn folding off
 set foldmethod=manual
-set nofoldenable"
+set nofoldenable
 
 " Ignore some file extensions
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.so
