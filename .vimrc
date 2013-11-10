@@ -139,8 +139,8 @@ set splitbelow
 " pastetoggle (sane indentation on pastes)
 set pastetoggle=<F12>
 
-" Disable mouse
-set mouse=
+" Enable mouse
+set mouse=a
 
 " No swap files
 set noswapfile
@@ -188,5 +188,4 @@ colorscheme wombat256mod
 " hi Normal 		guibg=NONE 		ctermbg=NONE
 " hi NonText 		guibg=NONE 		ctermbg=NONE
 " hi LineNr 		guibg=NONE 		ctermbg=NONE
-
 
