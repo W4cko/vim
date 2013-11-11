@@ -121,7 +121,6 @@ vnoremap <Right> <Nop>
 " Misc mappings
 nmap <f1> :tabprevious<CR>
 nmap <f2> :tabnew<CR>
-nmap <f4> :TagbarToggle<CR>
 nmap <f5> <C-w><C-w>
 
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
