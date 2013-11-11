@@ -145,9 +145,6 @@ set mouse=a
 " No swap files
 set noswapfile
 
-" AMPL syntax for .mod files
-au BufRead,BufNewFile *.mod set filetype=ampl
-
 " When shifting, retain selection over multiple shifts...
 vmap <expr> > KeepVisualSelection(">")
 vmap <expr> < KeepVisualSelection("<")
