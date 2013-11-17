@@ -180,6 +180,12 @@ let g:airline_powerline_fonts = 1
 " CtrlP
 let g:ctrlp_show_hidden = 1
 
+" NERDTree ignore
+let NERDTreeIgnore=['\.o$', '\~$', '\.class$', '\.so$']
+
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 " Colors
 set t_Co=256
 syntax on
