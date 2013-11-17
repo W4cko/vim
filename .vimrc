@@ -90,10 +90,6 @@ set backspace=indent,eol,start
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
 
-" Invisible chars
-set list
-set listchars=tab:›\ ,trail:·
-
 " Enable file type detection.
 filetype plugin indent on
 
