@@ -123,9 +123,7 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 
 " Misc mappings
-nmap <f1> <C-w>w
-nmap <f2> :tabprevious<CR>
-nmap <f3> :tabnew<CR>
+nmap <space> <C-w>w
 nmap <leader><f1> :NERDTreeToggle<CR>
 nmap <leader><f2> :TagbarToggle<CR>
 
