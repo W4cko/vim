@@ -127,6 +127,7 @@ nmap <f1> <C-w>w
 nmap <f2> :tabprevious<CR>
 nmap <f3> :tabnew<CR>
 nmap <leader><f1> :NERDTreeToggle<CR>
+nmap <leader><f2> :TagbarToggle<CR>
 
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
 vmap <BS> x
